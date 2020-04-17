@@ -1,5 +1,8 @@
 ﻿namespace MingleBee.Models
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Value
     {
         public int Id { get; set; }
