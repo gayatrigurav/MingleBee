@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MingleBee.Data;
@@ -9,7 +10,7 @@ using MingleBee.Data;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace MingleBee.Controllers
-{
+{   [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
@@ -30,8 +31,9 @@ namespace MingleBee.Controllers
         }
 
         // GET api/<controller>/5
+        [AllowAnonymous]
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetValues(int id)
+        public async Task<IActionResult> GetValue(int id)
         {
             var value = await _context.Values.FirstOrDefaultAsync(x => x.Id == id);
 
