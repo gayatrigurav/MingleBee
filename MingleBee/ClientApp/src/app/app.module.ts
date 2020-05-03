@@ -9,6 +9,7 @@ import { NavComponent } from './nav/nav.component';
 import { AuthService } from './_services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { ErrorInterceptorProvider } from './_services/error.Interceptor';
 
 @NgModule({
   declarations: [
@@ -22,13 +23,10 @@ import { RegisterComponent } from './register/register.component';
     RouterModule.forRoot([])
   ],
 
-
-
-
-
-
   providers: [
-  AuthService],
+    ErrorInterceptorProvider,
+    AuthService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
